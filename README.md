@@ -27,5 +27,5 @@ Technologies:
 - Webhooks.
 - API (PSA).
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fNickJongens%2fO365-ScheduledOffboarding%2fmaster%2fAzureFunction%2ftemplate.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fNickJongens%2fO365-ScheduledOffboarding%2fmaster%2f%2ftemplate.json)
 
