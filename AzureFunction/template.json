@@ -116,8 +116,12 @@
                             "value": "[parameters('RefreshToken')]"
                         },
                         {
-                            "name": "GeneratedPassword",
-                            "value": "[parameters('GeneratedPassword')]"
+                            "name": "ExchangeRefreshToken",
+                            "value": "[parameters('ExchangeRefreshToken')]"
+                        },
+                        {
+                            "name": "UPN",
+                            "value": "[parameters('UPN')]"
                         },
                         {
                             "name": "Logo",
