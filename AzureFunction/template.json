@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "baseName": {
-            "defaultValue": "Base Nam",
+            "defaultValue": "Base Name",
             "type": "string",
             "metadata": {
                 "description": "Name use as base-template to named the resources deployed in Azure."
@@ -35,6 +35,13 @@
             "type": "string",
             "metadata": {
                 "description": "Secure App Model - Exchange Refresh token"
+            }
+        },
+        "UPN": {
+            "defaultValue": "admin@example.com",
+            "type": "string",
+            "metadata": {
+                "description": "Admin Account used for delegation"
             }
         },
         "Logo": {
