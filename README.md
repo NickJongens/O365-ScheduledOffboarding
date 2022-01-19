@@ -1,4 +1,4 @@
-# O365-ScheduledOffboarding
+# Office 365 / Azure AD User Scheduled Offboarding
 Code designed to allow an automatic offboarding of a user at a specific time using Azure Functions.
 
 Required Outcomes:
@@ -26,3 +26,6 @@ Technologies:
 - Secure Application Model.
 - Webhooks.
 - API (PSA).
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fNickJongens%2fO365-ScheduledOffboarding%2fmaster%2fAzureFunction%2ftemplate.json)
+
