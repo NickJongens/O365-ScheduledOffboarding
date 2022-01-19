@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><Policy ID="bad7fdab-52e6-4332-b65a-02ad78af65de" Name="Offboard Office 365 Account" Description="VmVyc2lvbiAxLjA=" Version="2.10.0.19" RemoteCategory="0" ExecutionType="Local" MinimumPSVersionRequired="0.0.0">
+  <Object ID="{5b6bb25b-59db-429f-a3fa-cd0aa254a147}" Type="{B6FA6D8B-EEAA-47A6-8463-7F9A4F5BBB6E}" Data="&lt;xml&gt;&lt;Parameters&gt;&lt;Parameter ParameterName=&quot;userToOffboard&quot; Label=&quot;User To Offboard&quot; ParameterType=&quot;string&quot; Value=&quot;&quot; /&gt;&lt;Parameter ParameterName=&quot;CustomerDefaultDomainname&quot; Label=&quot;Customer Primary Domain Name&quot; ParameterType=&quot;string&quot; Value=&quot;&quot; /&gt;&lt;Parameter ParameterName=&quot;ApplicationId&quot; Label=&quot;Azure AD App Registration - Application ID&quot; ParameterType=&quot;string&quot; Value=&quot;&quot; /&gt;&lt;Parameter ParameterName=&quot;ApplicationSecret&quot; Label=&quot;Azure AD App Registration - Application Secret&quot; ParameterType=&quot;string&quot; Value=&quot;&quot; /&gt;&lt;Parameter ParameterName=&quot;RefreshToken&quot; Label=&quot;Azure AD App Registration - Refresh Token&quot; ParameterType=&quot;string&quot; Value=&quot;&quot; /&gt;&lt;Parameter ParameterName=&quot;ExchangeRefreshToken&quot; Label=&quot;Azure AD App Registration - Exchange Refresh Token&quot; ParameterType=&quot;string&quot; Value=&quot;&quot; /&gt;&lt;Parameter ParameterName=&quot;UPN&quot; Label=&quot;Azure AD App Registration - Delegated Admin User&quot; ParameterType=&quot;string&quot; Value=&quot;&quot; /&gt;&lt;/Parameters&gt;&lt;OutputParameters&gt;&lt;Parameter ParameterName=&quot;OffboardedUser&quot; Label=&quot;Offboarded User&quot; ParameterType=&quot;string&quot; Value=&quot;Input Parameters.User To Offboard&quot; /&gt;&lt;Parameter ParameterName=&quot;RemovedLicenses&quot; Label=&quot;Licenses that were removed&quot; ParameterType=&quot;string&quot; Value=&quot;Run PowerShell Script.Assigned Licenses&quot; /&gt;&lt;/OutputParameters&gt;&lt;/xml&gt;" />
+  <LinkManager xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/PolicyExecutor">
+    <hashset xmlns:d2p1="http://schemas.datacontract.org/2004/07/System">
+      <d2p1:TupleOfstringstringstringstring>
+        <d2p1:m_Item1>InputParameter.userToOffboard</d2p1:m_Item1>
+        <d2p1:m_Item2>OutputObject</d2p1:m_Item2>
+        <d2p1:m_Item3></d2p1:m_Item3>
+        <d2p1:m_Item4>OffboardedUser</d2p1:m_Item4>
+      </d2p1:TupleOfstringstringstringstring>
+      <d2p1:TupleOfstringstringstringstring>
+        <d2p1:m_Item1>3e71058d-9991-4454-ad99-27737666d885.AssignedLicensesTable</d2p1:m_Item1>
+        <d2p1:m_Item2>OutputObject</d2p1:m_Item2>
+        <d2p1:m_Item3></d2p1:m_Item3>
+        <d2p1:m_Item4>RemovedLicenses</d2p1:m_Item4>
+      </d2p1:TupleOfstringstringstringstring>
+    </hashset>
+  </LinkManager>
+  <Diagnostics OriginalVersion="2.18.1.8" />
+  <Activity mc:Ignorable="sads sap" x:Class="Policy Builder" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="clr-namespace:PolicyExecutor;assembly=PolicyExecutionEngine" xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <x:Members>
+      <x:Property Name="PolicyGUID" Type="InArgument(x:String)" />
+    </x:Members>
+    <sap:VirtualizedContainerService.HintSize>491.2,570.4</sap:VirtualizedContainerService.HintSize>
+    <mva:VisualBasic.Settings>Assembly references and imported namespaces serialized as XML namespaces</mva:VisualBasic.Settings>
+    <p:PolicySequence DisplayName="Policy Builder" sap:VirtualizedContainerService.HintSize="491.2,570.4" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+      <p:PolicySequence.Activities>
+        <p:RunPowerShellScript AssemblyName="PolicyExecutionEngine, Version=2.18.1.8, Culture=neutral, PublicKeyToken=null" DisplayName="Run PowerShell Script" sap:VirtualizedContainerService.HintSize="454.4,347.2" Moniker="3e71058d-9991-4454-ad99-27737666d885" OutPut_64="[RunPowerShellScript_OutPut_64]" Result="[RunPowerShellScript_Result]" ResultString="[RunPowerShellScript_ResultString]" Results_x64="[RunPowerShellScript_Results_x64]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" TypeName="RunPowerShellScript" genArgEvent="52e07c8e-ecc7-4279-afe5-2a9dd58756e1" m_bTextLinkChange="False" script="JAB0AG8AawBlAG4AVgBhAGwAdQBlACAAPQAgAEMAbwBuAHYAZQByAHQAVABvAC0AUwBlAGMAdQByAGUAUwB0AHIAaQBuAGcAIAAiAEIAZQBhAHIAZQByACAAJAAoACQAdABvAGsAZQBuAC4AQQBjAGMAZQBzAHMAVABvAGsAZQBuACkAIgAgAC0AQQBzAFAAbABhAGkAbgBUAGUAeAB0ACAALQBGAG8AcgBjAGUADQAKACQAYwByAGUAZABlAG4AdABpAGEAbAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBNAGEAbgBhAGcAZQBtAGUAbgB0AC4AQQB1AHQAbwBtAGEAdABpAG8AbgAuAFAAUwBDAHIAZQBkAGUAbgB0AGkAYQBsACgAJAB1AHAAbgAsACAAJAB0AG8AawBlAG4AVgBhAGwAdQBlACkADQAKACQAcwBlAHMAcwBpAG8AbgAgAD0AIABOAGUAdwAtAFAAUwBTAGUAcwBzAGkAbwBuACAALQBDAG8AbgBmAGkAZwB1AHIAYQB0AGkAbwBuAE4AYQBtAGUAIABNAGkAYwByAG8AcwBvAGYAdAAuAEUAeABjAGgAYQBuAGcAZQAgAC0AQwBvAG4AbgBlAGMAdABpAG8AbgBVAHIAaQAgACIAaAB0AHQAcABzADoALwAvAHAAcwAuAG8AdQB0AGwAbwBvAGsALgBjAG8AbQAvAHAAbwB3AGUAcgBzAGgAZQBsAGwALQBsAGkAdgBlAGkAZAA/AEQAZQBsAGUAZwBhAHQAZQBkAE8AcgBnAD0AJAAoACQAQwB1AHMAdABvAG0AZQByAEQAZQBmAGEAdQBsAHQARABvAG0AYQBpAG4AbgBhAG0AZQApACYAQgBhAHMAaQBjAEEAdQB0AGgAVABvAE8AQQB1AHQAaABDAG8AbgB2AGUAcgBzAGkAbwBuAD0AdAByAHUAZQAiACAALQBDAHIAZQBkAGUAbgB0AGkAYQBsACAAJABjAHIAZQBkAGUAbgB0AGkAYQBsACAALQBBAHUAdABoAGUAbgB0AGkAYwBhAHQAaQBvAG4AIABCAGEAcwBpAGMAIAAtAEEAbABsAG8AdwBSAGUAZABpAHIAZQBjAHQAaQBvAG4ADQAKAEkAbQBwAG8AcgB0AC0AUABTAFMAZQBzAHMAaQBvAG4AIAAkAHMAZQBzAHMAaQBvAG4AIAAtAEEAbABsAG8AdwBDAGwAbwBiAGIAZQByAA0ACgB3AHIAaQB0AGUALQBoAG8AcwB0ACAAIgBSAGUAbQBvAHYAaQBuAGcAIAB1AHMAZQByAHMAIABmAHIAbwBtACAAQQB6AHUAcgBlACAAQQBEACAARwByAG8AdQBwAHMAIgAgAC0ARgBvAHIAZQBnAHIAbwB1AG4AZABDAG8AbABvAHIAIABHAHIAZQBlAG4ADQAKAA0ACgBUAHIAeQANAAoAewANAAoAJABNAGUAbQBiAGUAcgBJAEQAIAA9ACAAKABHAGUAdAAtAEEAegB1AHIAZQBBAEQAVQBzAGUAcgAgAC0ATwBiAGoAZQBjAHQASQBkACAAJAB1AHMAZQByAFQAbwBPAGYAZgBiAG8AYQByAGQAKQAuAG8AYgBqAGUAYwB0AEkAZAANAAoARwBlAHQALQBBAHoAdQByAGUAQQBEAFUAcwBlAHIATQBlAG0AYgBlAHIAcwBoAGkAcAAgAC0ATwBiAGoAZQBjAHQASQBkACAAJABNAGUAbQBiAGUAcgBJAEQAIAAtAEEAbABsACAAJAB0AHIAdQBlACAAfAAgAFcAaABlAHIAZQAtAE8AYgBqAGUAYwB0ACAAewAgACQAXwAuAE8AYgBqAGUAYwB0AFQAeQBwAGUAIAAtAGUAcQAgACIARwByAG8AdQBwACIAIAAtAGEAbgBkACAAJABfAC4AUwBlAGMAdQByAGkAdAB5AEUAbgBhAGIAbABlAGQAIAAtAGUAcQAgACQAdAByAHUAZQAgAC0AYQBuAGQAIAAkAF8ALgBNAGEAaQBsAEUAbgBhAGIAbABlAGQAIAAtAGUAcQAgACQAZgBhAGwAcwBlACAAfQAgAHwAIAB3AGgAZQByAGUAIAB7ACgAJABfAC4AZABpAHMAcABsAGEAeQBuAGEAbQBlACAALQBuAG8AdABsAGkAawBlACAAIgBBAGwAbAAgAFUAcwBlAHIAcwAiACkAfQAgAHwAIABGAG8AcgBFAGEAYwBoAC0ATwBiAGoAZQBjAHQAIAB7ACAADQAKACAAIAAgACAAdwByAGkAdABlAC0AaABvAHMAdAAgACIAIAAgACAAIABSAGUAbQBvAHYAaQBuAGcAIAB1AHMAZQByACAAZgByAG8AbQAgAHQAaABlACAAZwByAG8AdQBwADoAIAAkACgAJABfAC4AZABpAHMAcABsAGEAeQBuAGEAbQBlACkAIgAgAC0ARgBvAHIAZQBnAHIAbwB1AG4AZABDAG8AbABvAHIAIABnAHIAZQBlAG4ADQAKACAAIAAgACAAUgBlAG0AbwB2AGUALQBBAHoAdQByAGUAQQBEAEcAcgBvAHUAcABNAGUAbQBiAGUAcgAgAC0ATwBiAGoAZQBjAHQASQBkACAAJABfAC4ATwBiAGoAZQBjAHQASQBEACAALQBNAGUAbQBiAGUAcgBJAGQAIAAkAE0AZQBtAGIAZQByAEkARAAgAC0ARQByAHIAbwByAEEAYwB0AGkAbwBuACAAUwBpAGwAZQBuAHQAbAB5AEMAbwBuAHQAaQBuAHUAZQANAAoAfQANAAoAfQANAAoAYwBhAHQAYwBoACAAewANAAoAIAAgACAAIABXAHIAaQB0AGUALQBXAGEAcgBuAGkAbgBnACAAIgBJAGcAbgBvAHIAaQBuAGcAIABFAHIAcgBvAHIAIABkAHUAZQAgAHQAbwAgAEQAeQBuAGEAbQBpAGMAIABHAHIAbwB1AHAAIABNAGUAbQBiAGUAcgBzAGgAaQBwACAAIgANAAoAfQANAAoADQAKAHcAcgBpAHQAZQAtAGgAbwBzAHQAIAAiAFIAZQBtAG8AdgBpAG4AZwAgAHUAcwBlAHIAcwAgAGYAcgBvAG0AIABVAG4AaQBmAGkAZQBkACAARwByAG8AdQBwAHMAIABhAG4AZAAgAFQAZQBhAG0AcwAiACAALQBGAG8AcgBlAGcAcgBvAHUAbgBkAEMAbwBsAG8AcgAgAEcAcgBlAGUAbgANAAoAJABPAGYAZgBiAG8AYQByAGQAaQBuAGcARABOACAAPQAgACgAZwBlAHQALQBtAGEAaQBsAGIAbwB4ACAALQBJAGQAZQBuAHQAaQB0AHkAIAAkAHUAcwBlAHIAVABvAE8AZgBmAGIAbwBhAHIAZAAgAC0ASQBuAGMAbAB1AGQAZQBJAG4AYQBjAHQAaQB2AGUATQBhAGkAbABiAG8AeAApAC4ARABpAHMAdABpAG4AZwB1AGkAcwBoAGUAZABOAGEAbQBlAA0ACgANAAoADQAKAEcAZQB0AC0AUgBlAGMAaQBwAGkAZQBuAHQAIAAtAEYAaQBsAHQAZQByACAAIgBNAGUAbQBiAGUAcgBzACAALQBlAHEAIAAnACQATwBmAGYAYgBvAGEAcgBkAGkAbgBnAEQATgAnACIAIAAtAFIAZQBjAGkAcABpAGUAbgB0AFQAeQBwAGUARABlAHQAYQBpAGwAcwAgACcARwByAG8AdQBwAE0AYQBpAGwAYgBvAHgAJwAgAHwAIABmAG8AcgBlAGEAYwBoAC0AbwBiAGoAZQBjAHQAIAB7ACAADQAKACAAIAAgACAAdwByAGkAdABlAC0AaABvAHMAdAAgACIAIAAgACAAIABSAGUAbQBvAHYAaQBuAGcAIAB1AHMAaQBuAGcAIABmAHIAbwBtACAAJAAoACQAXwAuAG4AYQBtAGUAKQAiACAALQBGAG8AcgBlAGcAcgBvAHUAbgBkAEMAbwBsAG8AcgAgAGcAcgBlAGUAbgANAAoAIAAgACAAIABSAGUAbQBvAHYAZQAtAFUAbgBpAGYAaQBlAGQARwByAG8AdQBwAEwAaQBuAGsAcwAgAC0ASQBkAGUAbgB0AGkAdAB5ACAAJABfAC4ARQB4AHQAZQByAG4AYQBsAEQAaQByAGUAYwB0AG8AcgB5AE8AYgBqAGUAYwB0AEkAZAAgAC0ATABpAG4AawBzACAAJAB1AHMAZQByAFQAbwBPAGYAZgBiAG8AYQByAGQAIAAtAEwAaQBuAGsAVAB5AHAAZQAgAE0AZQBtAGIAZQByACAALQBDAG8AbgBmAGkAcgBtADoAJABmAGEAbABzAGUAIAB9AA0ACgANAAoAdwByAGkAdABlAC0AaABvAHMAdAAgACIAUgBlAG0AbwB2AGkAbgBnACAAdQBzAGUAcgBzACAAZgByAG8AbQAgAEQAaQBzAHQAcgBpAGIAdQB0AGkAbwBuACAARwByAG8AdQBwAHMAIgAgAC0ARgBvAHIAZQBnAHIAbwB1AG4AZABDAG8AbABvAHIAIABHAHIAZQBlAG4ADQAKAEcAZQB0AC0AUgBlAGMAaQBwAGkAZQBuAHQAIAAtAEYAaQBsAHQAZQByACAAIgBNAGUAbQBiAGUAcgBzACAALQBlAHEAIAAnACQATwBmAGYAYgBvAGEAcgBkAGkAbgBnAEQATgAnACIAIAB8ACAAZgBvAHIAZQBhAGMAaAAtAG8AYgBqAGUAYwB0ACAAewAgAA0ACgAgACAAIAAgAHcAcgBpAHQAZQAtAGgAbwBzAHQAIAAiACAAIAAgACAAUgBlAG0AbwB2AGkAbgBnACAAdQBzAGkAbgBnACAAZgByAG8AbQAgACQAKAAkAF8ALgBuAGEAbQBlACkAIgAgAC0ARgBvAHIAZQBnAHIAbwB1AG4AZABDAG8AbABvAHIAIABnAHIAZQBlAG4ADQAKACAAIAAgACAAUgBlAG0AbwB2AGUALQBEAGkAcwB0AHIAaQBiAHUAdABpAG8AbgBHAHIAbwB1AHAATQBlAG0AYgBlAHIAIAAtAEkAZABlAG4AdABpAHQAeQAgACQAXwAuAEUAeAB0AGUAcgBuAGEAbABEAGkAcgBlAGMAdABvAHIAeQBPAGIAagBlAGMAdABJAGQAIAAtAE0AZQBtAGIAZQByACAAJABPAGYAZgBiAG8AYQByAGQAaQBuAGcARABOACAALQBCAHkAcABhAHMAcwBTAGUAYwB1AHIAaQB0AHkARwByAG8AdQBwAE0AYQBuAGEAZwBlAHIAQwBoAGUAYwBrACAALQBDAG8AbgBmAGkAcgBtADoAJABmAGEAbABzAGUAIAB9AA0ACgANAAoAdwByAGkAdABlAC0AaABvAHMAdAAgACIAQwBoAGEAbgBnAGkAbgBnACAARABpAHMAcABsAGEAeQAgAE4AYQBtAGUAIAB0AG8AIABJAG4AYwBsAHUAZABlACAAJwBBAFIAQwBIAEkAVgBFAEQAIAAtACAAJwAgACIAIAAtAEYAbwByAGUAZwByAG8AdQBuAGQAQwBvAGwAbwByACAARwByAGUAZQBuAA0ACgAkAHMAdAByADEAIAA9ACAAIgBBAFIAQwBIAEkAVgBFAEQAIAAtACAAIgANAAoAJABzAHQAcgAyACAAPQAgAEcAZQB0AC0AQQB6AHUAcgBlAEEARABVAHMAZQByACAALQBPAGIAagBlAGMAdABJAGQAIAAkAE0AZQBtAGIAZQByAEkARAAgAHwAIABzAGUAbABlAGMAdAAgAC0AZQB4AHAAYQBuAGQAIABEAGkAcwBwAGwAYQB5AE4AYQBtAGUADQAKACQAbgBlAHcAdQBzAGUAcgBEAGkAcwBwAGwAYQB5AE4AYQBtAGUAIAA9ACAAJABzAHQAcgAxACsAJABzAHQAcgAyAA0ACgBTAGUAdAAtAEEAegB1AHIAZQBBAEQAVQBzAGUAcgAgAC0ATwBiAGoAZQBjAHQASQBkACAAJABNAGUAbQBiAGUAcgBJAEQAIAAtAEQAaQBzAHAAbABhAHkATgBhAG0AZQAgACQAbgBlAHcAdQBzAGUAcgBEAGkAcwBwAGwAYQB5AE4AYQBtAGUADQAKAHcAcgBpAHQAZQAtAGgAbwBzAHQAIAAiAFMAZQB0AHQAaQBuAGcAIABtAGEAaQBsAGIAbwB4ACAAdABvACAAUwBoAGEAcgBlAGQAIABNAGEAaQBsAGIAbwB4ACIAIAAtAEYAbwByAGUAZwByAG8AdQBuAGQAQwBvAGwAbwByACAARwByAGUAZQBuAA0ACgBTAGUAdAAtAE0AYQBpAGwAYgBvAHgAIAAkAHUAcwBlAHIAVABvAE8AZgBmAGIAbwBhAHIAZAAgAC0AVAB5AHAAZQAgAFMAaABhAHIAZQBkAA0ACgB3AHIAaQB0AGUALQBoAG8AcwB0ACAAIgBIAGkAZABpAG4AZwAgAHUAcwBlAHIAIABmAHIAbwBtACAARwBBAEwAIgAgAC0ARgBvAHIAZQBnAHIAbwB1AG4AZABDAG8AbABvAHIAIABHAHIAZQBlAG4ADQAKAFMAZQB0AC0ATQBhAGkAbABiAG8AeAAgACQAdQBzAGUAcgBUAG8ATwBmAGYAYgBvAGEAcgBkACAALQBIAGkAZABkAGUAbgBGAHIAbwBtAEEAZABkAHIAZQBzAHMATABpAHMAdABzAEUAbgBhAGIAbABlAGQAIAAkAHQAcgB1AGUADQAKACAADQAKAHcAcgBpAHQAZQAtAGgAbwBzAHQAIAAiAFIAZQBtAG8AdgBpAG4AZwAgAEwAaQBjAGUAbgBzAGUAIABmAHIAbwBtACAAdQBzAGUAcgAuACIAIAAtAEYAbwByAGUAZwByAG8AdQBuAGQAQwBvAGwAbwByACAARwByAGUAZQBuAA0ACgAkAEEAcwBzAGkAZwBuAGUAZABMAGkAYwBlAG4AcwBlAHMAVABhAGIAbABlACAAPQAgAEcAZQB0AC0AQQB6AHUAcgBlAEEARABVAHMAZQByACAALQBPAGIAagBlAGMAdABJAGQAIAAkAHUAcwBlAHIAVABvAE8AZgBmAGIAbwBhAHIAZAAgAHwAIABHAGUAdAAtAEEAegB1AHIAZQBBAEQAVQBzAGUAcgBMAGkAYwBlAG4AcwBlAEQAZQB0AGEAaQBsACAAfAAgAFMAZQBsAGUAYwB0AC0ATwBiAGoAZQBjAHQAIABAAHsAbgAgAD0AIAAiAEwAaQBjAGUAbgBzAGUAIgA7ACAAZQAgAD0AIAB7ACAAJABfAC4AUwBrAHUAUABhAHIAdABOAHUAbQBiAGUAcgAgAH0AIAB9ACwAIABzAGsAdQBpAGQAIAANAAoAaQBmACAAKAAkAEEAcwBzAGkAZwBuAGUAZABMAGkAYwBlAG4AcwBlAHMAVABhAGIAbABlACkAIAB7AA0ACgAgACAAIAAgACQAYgBvAGQAeQAgAD0AIABAAHsADQAKACAAIAAgACAAIAAgACAAIABhAGQAZABMAGkAYwBlAG4AcwBlAHMAIAAgACAAIAA9ACAAQAAoACkADQAKACAAIAAgACAAIAAgACAAIAByAGUAbQBvAHYAZQBMAGkAYwBlAG4AcwBlAHMAIAA9ACAAQAAoACQAQQBzAHMAaQBnAG4AZQBkAEwAaQBjAGUAbgBzAGUAcwBUAGEAYgBsAGUALgBzAGsAdQBpAGQAKQANAAoAIAAgACAAIAB9AA0ACgAgACAAIAAgAFMAZQB0AC0AQQB6AHUAcgBlAEEARABVAHMAZQByAEwAaQBjAGUAbgBzAGUAIAAtAE8AYgBqAGUAYwB0AEkAZAAgACQAdQBzAGUAcgBUAG8ATwBmAGYAYgBvAGEAcgBkACAALQBBAHMAcwBpAGcAbgBlAGQATABpAGMAZQBuAHMAZQBzACAAJABiAG8AZAB5AA0ACgB9AA0ACgAgAA0ACgB3AHIAaQB0AGUALQBoAG8AcwB0ACAAIgBSAGUAbQBvAHYAZQBkACAAbABpAGMAZQBuAHMAZQBzADoAIgANAAoAJABBAHMAcwBpAGcAbgBlAGQATABpAGMAZQBuAHMAZQBzAFQAYQBiAGwAZQANAAoAdwByAGkAdABlAC0AaABvAHMAdAAgACIARABpAHMAYQBiAGwAaQBuAGcAIABVAHMAZQByACAAcwBpAGcAbgAgAGkAbgAiACAALQBGAG8AcgBlAGcAcgBvAHUAbgBkAEMAbwBsAG8AcgAgAEcAcgBlAGUAbgANAAoAUwBlAHQALQBBAHoAdQByAGUAQQBEAFUAcwBlAHIAIAAtAE8AYgBqAGUAYwB0AEkARAAgACQAdQBzAGUAcgBUAG8ATwBmAGYAYgBvAGEAcgBkACAALQBBAGMAYwBvAHUAbgB0AEUAbgBhAGIAbABlAGQAIAAkAGYAYQBsAHMAZQANAAoAUgBlAG0AbwB2AGUALQBQAFMAUwBlAHMAcwBpAG8AbgAgACQAcwBlAHMAcwBpAG8AbgA=">
+          <p:RunPowerShellScript.InArgs>
+            <p:InArg Item="{x:Null}" ItemProp="{x:Null}" x:Key="usertooffboard" ArgType="string" DisplayArg="Input Parameters.User To Offboard" DisplayName="User To Offboard - Username" Name="usertooffboard" isRequired="False">
+              <p:InArg.Arg>
+                <InArgument x:TypeArguments="x:Object">[userToOffboard]</InArgument>
+              </p:InArg.Arg>
+            </p:InArg>
+            <p:InArg Item="{x:Null}" ItemProp="{x:Null}" x:Key="ErrorAction" ArgType="string" DisplayArg="SilentlyContinue" DisplayName="Error Action" Name="ErrorAction" isRequired="False">
+              <p:InArg.Arg>
+                <InArgument x:TypeArguments="x:Object">
+                  <p:ObjectLiteral Value="SilentlyContinue" />
+                </InArgument>
+              </p:InArg.Arg>
+            </p:InArg>
+            <p:InArg Item="{x:Null}" ItemProp="{x:Null}" x:Key="CustomerDefaultDomainname" ArgType="string" DisplayArg="Input Parameters.Customer Primary Domain Name" DisplayName="Customer Primary Domain Name" Name="CustomerDefaultDomainname" isRequired="False">
+              <p:InArg.Arg>
+                <InArgument x:TypeArguments="x:Object">[CustomerDefaultDomainname]</InArgument>
+              </p:InArg.Arg>
+            </p:InArg>
+            <p:InArg Item="{x:Null}" ItemProp="{x:Null}" x:Key="ApplicationId" ArgType="string" DisplayArg="Input Parameters.Azure AD App Registration - Application ID" DisplayName="Azure AD App Registation - Application ID" Name="ApplicationId" isRequired="False">
+              <p:InArg.Arg>
+                <InArgument x:TypeArguments="x:Object">[ApplicationId]</InArgument>
+              </p:InArg.Arg>
+            </p:InArg>
+            <p:InArg Item="{x:Null}" ItemProp="{x:Null}" x:Key="ApplicationSecret" ArgType="string" DisplayArg="Input Parameters.Azure AD App Registration - Application Secret" DisplayName="Azure AD App Registration - Application Secret" Name="ApplicationSecret" isRequired="False">
+              <p:InArg.Arg>
+                <InArgument x:TypeArguments="x:Object">[ApplicationSecret]</InArgument>
+              </p:InArg.Arg>
+            </p:InArg>
+            <p:InArg Item="{x:Null}" ItemProp="{x:Null}" x:Key="RefreshToken" ArgType="string" DisplayArg="Input Parameters.Azure AD App Registration - Refresh Token" DisplayName="Azure AD App Registration - Refresh Token" Name="RefreshToken" isRequired="False">
+              <p:InArg.Arg>
+                <InArgument x:TypeArguments="x:Object">[RefreshToken]</InArgument>
+              </p:InArg.Arg>
+            </p:InArg>
+            <p:InArg Item="{x:Null}" ItemProp="{x:Null}" x:Key="ExchangeRefreshToken" ArgType="string" DisplayArg="Input Parameters.Azure AD App Registration - Exchange Refresh Token" DisplayName="Azure AD App Registration - Exchange Refresh Token" Name="ExchangeRefreshToken" isRequired="False">
+              <p:InArg.Arg>
+                <InArgument x:TypeArguments="x:Object">[ExchangeRefreshToken]</InArgument>
+              </p:InArg.Arg>
+            </p:InArg>
+            <p:InArg Item="{x:Null}" ItemProp="{x:Null}" x:Key="UPN" ArgType="string" DisplayArg="Input Parameters.Azure AD App Registration - Delegated Admin User" DisplayName="Azure AD App Registration - Delegated Admin User" Name="UPN" isRequired="False">
+              <p:InArg.Arg>
+                <InArgument x:TypeArguments="x:Object">[UPN]</InArgument>
+              </p:InArg.Arg>
+            </p:InArg>
+          </p:RunPowerShellScript.InArgs>
+          <p:RunPowerShellScript.OutArgs>
+            <p:OutArg x:Key="AssignedLicensesTable" ArgType="string" DisplayName="Assigned Licenses" Name="AssignedLicensesTable">
+              <p:OutArg.Arg>
+                <OutArgument x:TypeArguments="x:String">[RunPowerShellScript_AssignedLicensesTable]</OutArgument>
+              </p:OutArg.Arg>
+            </p:OutArg>
+          </p:RunPowerShellScript.OutArgs>
+        </p:RunPowerShellScript>
+      </p:PolicySequence.Activities>
+      <p:PolicySequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_OutPut_64" />
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_ResultString" />
+        <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="RunPowerShellScript_Results_x64" />
+        <Variable x:TypeArguments="x:Double" Name="RunPowerShellScript_Result" />
+        <Variable x:TypeArguments="x:String" Name="userToOffboard" />
+        <Variable x:TypeArguments="x:String" Name="CustomerDefaultDomainname" />
+        <Variable x:TypeArguments="x:String" Name="ApplicationId" />
+        <Variable x:TypeArguments="x:String" Name="ApplicationSecret" />
+        <Variable x:TypeArguments="x:String" Name="RefreshToken" />
+        <Variable x:TypeArguments="x:String" Name="ExchangeRefreshToken" />
+        <Variable x:TypeArguments="x:String" Name="UPN" />
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_AssignedLicensesTable" />
+      </p:PolicySequence.Variables>
+    </p:PolicySequence>
+  </Activity>
+</Policy>
